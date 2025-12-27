@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoService">
         <activity
+            android:name=".ui.request.CreateRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.request.EditRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.support.SupportChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainScreenActivity"
             android:exported="false" />
         <activity

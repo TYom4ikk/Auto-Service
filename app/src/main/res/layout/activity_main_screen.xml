@@ -22,7 +22,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_circle_white"
-                android:text="ИИ"
+                android:text="АЧ"
                 android:textStyle="bold"
                 android:textColor="#0A4DA2"
                 android:gravity="center"/>
@@ -37,14 +37,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Иван Иванов"
+                    android:text="Алексей Чирков"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Москва"
+                    android:text="Екатеринбург"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"/>
             </LinearLayout>
@@ -68,6 +68,8 @@
                 android:layout_height="44dp"
                 android:layout_weight="1"
                 android:text="Заказать звонок"
+                android:drawableLeft="@android:drawable/ic_menu_call"
+                android:drawablePadding="8dp"
                 android:background="@drawable/bg_button_white"
                 android:textColor="#0A4DA2"/>
 
@@ -76,10 +78,13 @@
                 android:layout_height="1dp"/>
 
             <Button
+                android:id="@+id/btnSupport"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_weight="1"
                 android:text="Поддержка"
+                android:drawableLeft="@android:drawable/ic_dialog_email"
+                android:drawablePadding="8dp"
                 android:background="@drawable/bg_button_white"
                 android:textColor="#0A4DA2"/>
         </LinearLayout>
@@ -100,6 +105,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:id="@+id/btnAddCar"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:text="+ Добавить"
@@ -131,6 +137,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:id="@+id/btnAddRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:text="+ Создать"
