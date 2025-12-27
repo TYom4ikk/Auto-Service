@@ -13,6 +13,8 @@ import com.example.autoservice.data.repository.RequestRepository
 import com.example.autoservice.ui.request.CreateRequestActivity
 import com.example.autoservice.ui.request.EditRequestActivity
 import com.example.autoservice.ui.support.SupportChatActivity
+import com.example.autoservice.ui.support.SupportChatActivitySimple
+import com.example.autoservice.ui.support.SupportChatActivityFull
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -36,8 +38,13 @@ class MainScreenActivity : AppCompatActivity() {
 
         // Находим кнопку поддержки и добавляем обработчик
         val supportButton = findViewById<Button>(R.id.btnSupport)
-        supportButton?.setOnClickListener {
-            startActivity(Intent(this, SupportChatActivity::class.java))
+        if (supportButton != null) {
+            supportButton.setOnClickListener {
+                Toast.makeText(this, "Открытие чата поддержки...", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, SupportChatActivityFull::class.java))
+            }
+        } else {
+            Toast.makeText(this, "Кнопка поддержки не найдена", Toast.LENGTH_SHORT).show()
         }
 
         renderCars()

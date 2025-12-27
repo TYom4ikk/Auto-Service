@@ -21,6 +21,12 @@
             android:name=".ui.support.SupportChatActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.support.SupportChatActivitySimple"
+            android:exported="false" />
+        <activity
+            android:name=".ui.support.SupportChatActivityFull"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainScreenActivity"
             android:exported="false" />
         <activity

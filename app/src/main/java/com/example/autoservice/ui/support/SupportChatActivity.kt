@@ -20,11 +20,18 @@ class SupportChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_support_chat)
+        
+        Toast.makeText(this, "Открыт экран чата поддержки", Toast.LENGTH_SHORT).show()
 
-        initViews()
-        setupRecyclerView()
-        loadPredefinedMessages()
-        setupClickListeners()
+        try {
+            initViews()
+            setupRecyclerView()
+            loadPredefinedMessages()
+            setupClickListeners()
+        } catch (e: Exception) {
+            Toast.makeText(this, "Ошибка: ${e.message}", Toast.LENGTH_LONG).show()
+            e.printStackTrace()
+        }
     }
 
     private fun initViews() {
@@ -144,44 +151,4 @@ class SupportChatActivity : AppCompatActivity() {
         val minute = now.get(java.util.Calendar.MINUTE)
         return String.format("%02d:%02d", hour, minute)
     }
-}
-
-class ChatAdapter(private val messages: List<ChatMessage>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
-
-    class ChatViewHolder(itemView: android.view.View) : RecyclerView.ViewHolder(itemView) {
-        val tvSenderName: TextView = itemView.findViewById(R.id.tvSenderName)
-        val tvMessage: TextView = itemView.findViewById(R.id.tvMessage)
-        val tvTime: TextView = itemView.findViewById(R.id.tvTime)
-        val llMessageContainer: LinearLayout = itemView.findViewById(R.id.llMessageContainer)
-    }
-
-    override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): ChatViewHolder {
-        val view = android.view.LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_chat_message, parent, false)
-        return ChatViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        val message = messages[position]
-        
-        holder.tvSenderName.text = message.senderName
-        holder.tvMessage.text = message.message
-        holder.tvTime.text = message.time
-        
-        // Выравнивание сообщений
-        val layoutParams = holder.llMessageContainer.layoutParams as RecyclerView.LayoutParams
-        if (message.isFromUser) {
-            layoutParams.marginStart = 80
-            layoutParams.marginEnd = 0
-            holder.tvMessage.setBackgroundResource(R.drawable.bg_card)
-        } else {
-            layoutParams.marginStart = 0
-            layoutParams.marginEnd = 80
-            holder.tvMessage.setBackgroundResource(R.drawable.bg_card)
-        }
-        
-        holder.llMessageContainer.layoutParams = layoutParams
-    }
-
-    override fun getItemCount() = messages.size
 }

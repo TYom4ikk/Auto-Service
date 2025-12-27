@@ -71,7 +71,7 @@
                 android:drawableLeft="@android:drawable/ic_menu_call"
                 android:drawablePadding="8dp"
                 android:background="@drawable/bg_button_white"
-                android:textColor="#0A4DA2"/>
+                android:textColor="@android:color/white"/>
 
             <Space
                 android:layout_width="12dp"
@@ -86,7 +86,7 @@
                 android:drawableLeft="@android:drawable/ic_dialog_email"
                 android:drawablePadding="8dp"
                 android:background="@drawable/bg_button_white"
-                android:textColor="#0A4DA2"/>
+                android:textColor="@android:color/white"/>
         </LinearLayout>
 
         <!-- МОИ АВТОМОБИЛИ -->
